@@ -70,7 +70,7 @@ fi
 
 #Testing of a wrong mask
 
-echo "Testing of a wrong mask (255.0.255.0)"
+echo "Testing of a wrong mask (255.0.255.0):"
 
 OUTPUT="$(mask2cidr 255.0.255.0)"
 
