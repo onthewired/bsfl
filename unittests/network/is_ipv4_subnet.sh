@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 declare -r DIR=$(cd "$(dirname "$0")" && pwd)
 
 check(){
@@ -18,12 +19,12 @@ fi
 conclude(){
 	if [[ $errnum == 0 ]]
 then
-	echo "Tous les tests sont ok!"
+	echo "All test OK"
 elif [[ $errnum == 1 ]]
 then
-    echo "il y a 1 erreur."
+    echo "There is 1 error"
 else 
-	echo "il y a $errnum erreurs."
+	echo "Tehre is $errnum errors"
 fi
 }
 
