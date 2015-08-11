@@ -5,8 +5,8 @@ declare -r DIR=$(cd "$(dirname "$0")" && pwd)
 check(){
 source $DIR/../../lib/bsfl.sh
 	result=2
-	echo "test de $1 : "
-	result=$($1)
+	echo "Testing $1 : "
+	tested=$($1)
 	result=$?
 if [[ $result == $2 ]]
 then
@@ -24,7 +24,7 @@ elif [[ $errnum == 1 ]]
 then
     echo "There is 1 error"
 else 
-	echo "Tehre is $errnum errors"
+	echo "There is $errnum errors"
 fi
 }
 
