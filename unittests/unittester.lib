@@ -1,5 +1,5 @@
-declare -r DIR=$(cd "$(dirname "$0")" && pwd)
-logfile=$DIR/../unittestlogpool.log
+declare -r DIRIT=$(cd "$(dirname "$0")" && pwd)
+logfile=$DIRIT/../unittestlogpool.log
 ## @fn check()
 ## @brief check errcode of function.
 ## @param function to test (with args).
