@@ -35,6 +35,10 @@ errnum=0
 
 check "is_fqdn www.google.com" 0
 
+#Testing of a working real fqdn
+
+check "is_fqdn www.google.com." 0
+
 #Testing of a working fqdn
 
 check "is_fqdn localhost.local" 0
@@ -81,16 +85,16 @@ check "is_fqdn www.\x41.com" 1
 
 check "is_fqdn azertyuiop" 1
 
-#Testing of ipv6
+#Testing of www.google.com.com
 
-check "is_fqdn 2001:db8:1f89:0:0:0:0:0" 1
+check "is_fqdn www.google.com.com" 1
 
-#Testing of an ip adress
-
-is_fqdn 128.128.128.128
+#Testing of ipv4
 
 check "is_fqdn 192.168.1.1" 1
 
 #Testing of ipv6
+
+check "is_fqdn 2001:db8:1f89:0:0:0:0:0" 1
 
 conclude "is_fqdn"
