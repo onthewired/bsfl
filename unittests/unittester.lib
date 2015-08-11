@@ -1,0 +1,51 @@
+## @fn check()
+## @brief check errcode of function.
+## @param function to test (with args).
+## @param expected errcode.
+check(){
+	result=2
+	echo "Testing $1 : "
+	tested=$($1)
+	result=$?
+if [[ $result == $2 ]]
+then
+	echo [ ok ]
+else 
+	echo [ ko ]
+	errnum=$((errnum+1))
+fi
+}
+## @fn echocheck()
+## @brief check echo of function.
+## @param function to test with args.
+## @param expected echo.
+
+echocheck(){
+	result=2
+	echo "Testing $1 : "
+	result=$($1)
+	#result=$?
+if [[ $result == $2 ]]
+then
+	echo [ ok ]
+else 
+	echo [ ko ]
+	errnum=$((errnum+1))
+fi
+}
+## @fn conclude()
+## @brief conclude one test sequence.
+## @param tested function name.
+
+conclude(){
+if [[ $errnum == 0 ]]
+then
+	echo "All test OK"
+elif [[ $errnum == 1 ]]
+then
+    echo "There is 1 error in $1"
+else 
+	echo "There is $errnum errors in $1"
+fi
+totalerr=$((errnum+totalerr))
+}
