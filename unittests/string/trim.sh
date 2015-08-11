@@ -2,18 +2,12 @@
 
 declare -r DIR=$(cd "$(dirname "$0")" && pwd)
 source $DIR/../../lib/bsfl.sh
+source $DIR/../unittester.lib
 
 STR="     string     test"
 
 echo "Testing of Trim on \"    string     test\":"
-OUTPUT="$(trim $STR)"
-
-if [ "$OUTPUT" == "string" ]
-then
-	echo [ ok ]
-else
-	echo [ ko ]
-fi
+echocheck("trim $STR" "string")
 
 echo "Testing of Trim on \"string\":"
 OUTPUT="$(trim $OUTPUT)"
