@@ -41,3 +41,14 @@ else
 	echo [ ko ]
 fi
 
+echo "Testing of poping an empty stack:"
+
+stack_pop
+
+if [ "$RESGISTER" == "" ]
+then
+	echo [ ok ]
+else
+	echo [ ko ]
+fi
+
