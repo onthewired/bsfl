@@ -56,3 +56,15 @@ else
 fi
 
 
+#Testing of an ip adress
+echo "Testing of an ip adress (128.128.128.128):"
+
+is_fqdn 128.128.128.128
+
+if [ "$?" == "1" ]
+then
+	echo [ ok ]
+else
+	echo [ ko ]
+fi
+
