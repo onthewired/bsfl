@@ -2,7 +2,7 @@
 
 declare -r DIR=$(cd "$(dirname "$0")" && pwd)
 source $DIR/../../lib/bsfl.sh
-source $DIR/../unittester.sh
+source $DIR/../unittester.lib
 
 #check(){
 #source $DIR/../../lib/bsfl.sh
@@ -97,4 +97,4 @@ check "is_fqdn 192.168.1.1" 1
 
 check "is_fqdn 2001:db8:1f89:0:0:0:0:0" 1
 
-conclude
+conclude "is_fqdn"
