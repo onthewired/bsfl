@@ -1,3 +1,5 @@
+declare -r DIR=$(cd "$(dirname "$0")" && pwd)
+logfile=$DIR/../monpetitlog.log
 ## @fn check()
 ## @brief check errcode of function.
 ## @param function to test (with args).
@@ -12,6 +14,7 @@ then
 	echo [ ok ]
 else 
 	echo [ ko ]
+	echo "Error testing $1"  >> $logfile
 	errnum=$((errnum+1))
 fi
 }
@@ -30,6 +33,7 @@ then
 	echo [ ok ]
 else 
 	echo [ ko ]
+	echo "Error testing $1"  >> $logfile
 	errnum=$((errnum+1))
 fi
 }
@@ -41,11 +45,15 @@ conclude(){
 if [[ $errnum == 0 ]]
 then
 	echo "All test OK"
+	echo "$1 : All test OK" >> $logfile
 elif [[ $errnum == 1 ]]
 then
     echo "There is 1 error in $1"
+    echo "There is 1 error in $1"  >> $logfile
 else 
-	echo "There is $errnum errors in $1"
+	echo "There is $errnum errors in $1" 
+	echo "There is $errnum errors in $1"  >> $logfile
 fi
+echo "" >> $logfile
 totalerr=$((errnum+totalerr))
 }
